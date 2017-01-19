@@ -63,7 +63,8 @@ gulp.task('clean', cb => del.sync(['dist'], cb));
 gulp.task('static', () => {
     return gulp.src([
         'src/*/*.css',
-        'src/*.html'
+        'src/*.html',
+        'src/CNAME'
     ], {
         dot: true
     }).pipe(gulp.dest('dist'));
