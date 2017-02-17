@@ -3,6 +3,7 @@ const isDesktop = device.desktop();
 
 const dungeonizerDescription = document.getElementById('dungeonizerDescription');
 const spaceshipIndwellerDescription = document.getElementById('spaceshipIndwellerDescription');
+const maskedPointsDescription = document.getElementById('maskedPointsDescription');
 
 if (dungeonizerDescription) {
     dungeonizerDescription.addEventListener('click', () => {
@@ -13,6 +14,12 @@ if (dungeonizerDescription) {
 if (spaceshipIndwellerDescription) {
     spaceshipIndwellerDescription.addEventListener('click', () => {
         window.open('https://mlknz.github.io/spaceship-indweller/', '_blank');
+    });
+}
+
+if (maskedPointsDescription) {
+    maskedPointsDescription.addEventListener('click', () => {
+        window.open('https://mlknz.github.io/Masked-Points-Transition/', '_blank');
     });
 }
 
