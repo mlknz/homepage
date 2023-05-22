@@ -4,6 +4,9 @@ const isDesktop = device.desktop();
 const dungeonizerDescription = document.getElementById('dungeonizerDescription');
 const spaceshipIndwellerDescription = document.getElementById('spaceshipIndwellerDescription');
 const maskedPointsDescription = document.getElementById('maskedPointsDescription');
+const plotterSketchesDescription = document.getElementById('plotterSketchesDescription');
+const vulkanSandboxDescription = document.getElementById('vulkanSandboxDescription');
+const steelGameDescription = document.getElementById('steelGameDescription');
 
 if (dungeonizerDescription) {
     dungeonizerDescription.addEventListener('click', () => {
@@ -20,6 +23,24 @@ if (spaceshipIndwellerDescription) {
 if (maskedPointsDescription) {
     maskedPointsDescription.addEventListener('click', () => {
         window.open('https://mlknz.github.io/Masked-Points-Transition/', '_blank');
+    });
+}
+
+if (plotterSketchesDescription) {
+    plotterSketchesDescription.addEventListener('click', () => {
+        window.open('https://github.com/mlknz/plotter-sketches/', '_blank');
+    });
+}
+
+if (vulkanSandboxDescription) {
+    vulkanSandboxDescription.addEventListener('click', () => {
+        window.open('https://github.com/mlknz/ELEKTROZARYA/', '_blank');
+    });
+}
+
+if (steelGameDescription) {
+    steelGameDescription.addEventListener('click', () => {
+        window.open('https://www.artstation.com/artwork/yDbbBK/', '_blank');
     });
 }
 

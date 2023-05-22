@@ -58,9 +58,9 @@ function webpackTask(cb, opts) {
     });
 }
 
-gulp.task('clean', cb => del.sync(['dist'], cb));
+gulp.task('clean', cb => del.sync(['dist'], cb()));
 
-gulp.task('static', () => {
+gulp.task('static', (cb) => {
     return gulp.src([
         'src/*/*.css',
         'src/*.html',
@@ -68,25 +68,28 @@ gulp.task('static', () => {
     ], {
         dot: true
     }).pipe(gulp.dest('dist'));
+    cb(); // 'cb' callback in all functions to signal flush async call ('hack')
 });
 
-gulp.task('assets', () => {
+gulp.task('assets', (cb) => {
     return gulp.src([
         'src/assets/**/*'
     ], {
         dot: true
     }).pipe(gulp.dest('dist/assets'));
+    cb();
 });
 
-gulp.task('libs', () => {
+gulp.task('libs', (cb) => {
     gulp.src('src/libs/*')
         .pipe(gulp.dest('dist/libs'));
+        cb();
 });
 
 gulp.task('webpack:prod', cb => webpackTask(cb, {prod: true}));
 
-gulp.task('build', ['clean', 'libs', 'static', 'assets', 'webpack:prod']);
+gulp.task('build', gulp.series('clean', 'libs', 'static', 'assets', 'webpack:prod'));
 
 gulp.task('watch', cb => webpackTask(cb, {watch: true}));
 
-gulp.task('default', ['build', 'watch']);
+gulp.task('default', gulp.series('build', 'watch'));
